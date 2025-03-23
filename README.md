@@ -1,51 +1,35 @@
 # PRODIGY_CS_03
-Description: This project is a tool built to assess the strength of a password. It evaluates the password based on verity of criteria, The tool provides feedback to the user regarding the password strength and suggests improvements if necessary. Additionally, it generates strong password suggestions and allows users to toggle password visibility.
-Password Strength Checker Tool
-This is a Python-based tool built using Kivy, which is primarily designed for mobile app development, but it has been adapted here for use on Windows. The tool evaluates the strength of a password by checking its length, presence of uppercase and lowercase letters, numbers, and special characters. It also provides feedback on the password's strength and suggests strong passwords.
+### Password Strength Checker Tool
+This tool is a simple Python application built with the Kivy framework. Although Kivy is typically used for mobile development, it has been tailored here for Windows users. The tool evaluates a password’s strength based on its length, the use of uppercase and lowercase letters, the presence of numbers, and special characters. Additionally, it provides feedback on how strong the password is and offers suggestions for stronger alternatives.
 
-Steps to Build the Password Strength Checker Tool
-1. Set Up the Development Environment
-Before you start building the application, make sure you have the required software:
+How the Password Strength Checker Tool Was Built
+1. Setting Up the Development Environment
+Before starting to build the tool, the following software is needed:
 
-Python 3.6+: Ensure that you have Python installed on your system. You can download it from python.org.
+Python 3.6+: Python is the core language for this project. If you don't have it installed, you can download it from python.org.
 
-Kivy: Kivy is a Python framework used to build the graphical user interface (GUI). Kivy is typically used for mobile applications, but it works perfectly on Windows as well. You can install Kivy by running:
+Kivy: Kivy is a Python framework used to create graphical user interfaces (GUIs). Although it is primarily used for mobile apps, Kivy also works on Windows. You can install Kivy using the command:
 
-bash
-Copy
-Edit
 pip install kivy
-2. Create the Main Python File
-Create a Python file named password_checker.py. This file will contain all the logic for checking password strength and generating feedback.
 
-In this file, you will:
+### 2. Creating the Python Script
+The core logic of the password checker is implemented in a Python file, password_checker.py. This script includes:
 
-Define the password strength checker function: This function will evaluate the password by checking:
+Password Strength Checker: This function checks the password for length, uppercase/lowercase letters, numbers, and special characters.
 
-Length
+Suggestions: If a password fails to meet the strength requirements, the tool suggests ways to improve it.
 
-Presence of uppercase and lowercase letters
-
-Presence of numbers
-
-Presence of special characters
-
-Define the suggest password function: This will suggest a random strong password to the user.
-
-Set up a Kivy graphical interface with:
+Graphical Interface (GUI): A simple interface is built using Kivy that includes:
 
 A text input field for the user to enter their password.
 
-A button to suggest a strong password.
+A button to suggest a stronger password.
 
-A display area for feedback about the password’s strength.
+A display area showing the feedback on the password’s strength.
 
-3. Define the Password Strength Function
-The check_password_strength function checks the password's strength based on predefined criteria. If the password is weak, it provides suggestions to make it stronger.
+### 3. Password Strength Function
+The password strength function checks whether the password meets several criteria. Based on the evaluation, it provides feedback:
 
-python
-Copy
-Edit
 import re
 
 def check_password_strength(password):
@@ -79,28 +63,19 @@ def check_password_strength(password):
         return "Medium password ⚠️\n" + "\n".join(feedback), [1, 0.5, 0], feedback
     else:
         return "Weak password ❌\n" + "\n".join(feedback), [1, 0, 0], feedback
-4. Build the Graphical User Interface (GUI)
-Next, you'll use Kivy to build the interface. Kivy makes it easy to design interactive applications.
+### 4. Building the GUI with Kivy
+Next, we set up the graphical interface using Kivy. This allows users to input their password and see the results immediately. The interface includes:
 
-The application should have the following components:
+A title for the tool.
 
-A title
+A password input field for users to enter their password.
 
-An image (optional)
+A label to display the password strength result.
 
-A password input field
+A progress bar to visually indicate the password strength.
 
-A label to display the password strength result
+Buttons for suggesting a strong password, toggling password visibility, and clearing the input.
 
-A button to suggest a strong password
-
-A button to toggle password visibility
-
-A clear button to reset the input
-
-python
-Copy
-Edit
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
@@ -186,22 +161,27 @@ class PasswordCheckerApp(App):
 
 if __name__ == "__main__":
     PasswordCheckerApp().run()
-5. Running the Application
-Once the code is ready, you can run it from the terminal:
+### 5. Running the Tool
+To run the application, simply execute the following command in your terminal or command prompt:
 
-bash
-Copy
-Edit
 python password_checker.py
-This will open up the graphical user interface where you can test password strength, view feedback, and suggest strong passwords.
+The GUI will open, allowing you to input a password and see the results immediately.
 
-6. How to Use the Tool
-Input a Password: Type a password into the password input field.
+### 6. Using the Tool
+1.Input a Password: Type the password you want to check.
 
-Check Strength: The tool will automatically evaluate your password's strength.
+2.Password Strength Feedback: The tool will automatically evaluate your password’s strength and display feedback.
 
-Suggest a Strong Password: Press the "Suggest a Strong Password" button to generate a random strong password.
+3.Generate a Strong Password: Click on the "Suggest a Strong Password" button to generate a random, secure password.
 
-Toggle Password Visibility: Use the "Show Password" or "Hide Password" button to reveal or hide the password.
+4.Toggle Password Visibility: Use the "Show Password" or "Hide Password" button to reveal or hide the password.
 
-Clear Input: Press the "Clear" button to reset the input and feedback.
+5.Clear the Input: Press the "Clear" button to reset the input and feedback.
+
+### 7. Possible Future Improvements
+Integrate a password history feature to compare against common weak passwords.
+
+Allow the user to save or copy the suggested strong passwords.
+
+
+
